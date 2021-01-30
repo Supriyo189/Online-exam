@@ -21,7 +21,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <a href="#"><b>Admin</b>LTE</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -72,14 +72,13 @@
       </form>
 
       <div class="text-center mb-3">
-        <p>- OR -</p>
-        
+        <p>- OR -</p> 
       </div>
       <p class="mb-1">
         <a href="forgot-password.html">I forgot my password</a>
       </p>
       <p class="mb-0">
-        <a href="{{route('register')}}" class="text-center">Register a new membership</a>
+        <a href="{{action('RegistrationController@registration')}}" class="text-center">Register a new membership</a>
       </p>
     </div>
     <!-- /.login-card-body -->

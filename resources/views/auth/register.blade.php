@@ -22,7 +22,7 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <a href="#"><b>Admin</b>LTE</a>
   </div>
 
   <div class="card">
@@ -46,7 +46,7 @@
         </div>
         <div class="input-group mb-3">
           <input id="email"  type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email"  name="email" value="{{ old('email') }}" required autocomplete="email">
-            <@error('email')
+            @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -71,20 +71,39 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" >
+          <input id="password-confirm" type="password" class="form-control" placeholder="confirm password" name="password_confirmation" required autocomplete="new-password" >
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
+        {{--Department--}}
         <div class="form-group">
-            <select class="custom-select form-control" required name="accountType">
+          <select class="custom-select form-control" required name="department">
+            <option value="">Select Department</option>\
+            @foreach ($depts as $item)
+                <option value="{{$item->id}}">{{$item->name}}</option>
+            @endforeach
+            
+          </select>
+        </div>
+        {{--Account Type--}}
+        <div class="form-group">
+            <select class="custom-select form-control" id="type" required name="accountType">
               <option value="">Select account type</option>
               <option value="Teacher">Teacher</option>
               <option value="Student">Student</option>
               <option value="Admin">Admin</option>
             </select>
+        </div>
+        <div class="input-group mb-3" id="student_id">
+          <input id="" type="" class="form-control" placeholder="Student id" name="stdID" autocomplete="" >
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-id-badge"></span>
+            </div>
+          </div>
         </div>
         <div class="row">
           <div class="col-8">
@@ -120,5 +139,23 @@
 <script src="{{asset('public/admin_asset')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('public/admin_asset')}}/dist/js/adminlte.min.js"></script>
+
+<script>
+  $(function ()
+    {     
+      $("#student_id").hide();
+      $('#type').change(function(){
+        var type = $(this).val();
+        if (type == 'Student') {
+          $("#student_id").show();
+          $("#student_id").attr("required");
+        }else{
+          $("#student_id").hide();
+        }
+      });
+
+    });
+</script>
+
 </body>
 </html>

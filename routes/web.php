@@ -46,7 +46,7 @@ Route::group(['middleware' => 'auth'],function(){
     });
 
 
-    Route::group(['middleware' => 'student'],function(){
+    Route::group(['middleware' => 'student'],function(){ 
 
         /*----------------Give Exam -----------------*/
         Route::get('student/give_exam','Student\GiveExamController@give_exam');
@@ -77,3 +77,8 @@ Route::group(['middleware' => 'auth'],function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/registration/form', 'RegistrationController@registration');
+
+Route::get('/manage_profile', 'Admin\Manage_profileController@manage_profile');
+
+Route::post('/update_profile','Admin\Manage_profileController@update_profile');
