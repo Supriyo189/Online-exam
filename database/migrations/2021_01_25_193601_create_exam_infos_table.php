@@ -15,11 +15,18 @@ class CreateExamInfosTable extends Migration
     {
         Schema::create('exam_infos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('teacher_id');
-            $table->string('course');
-            $table->integer('question_lenth');
+            $table->string('teacher_code');
+            $table->unsignedBigInteger('department_id');
+            $table->foreign('department_id')->references('id')->on('departments')->onUpdate('No Action')->onDelete('No Action');
+            $table->unsignedBigInteger('examtype_id');
+            $table->foreign('examtype_id')->references('id')->on('examtypes')->onUpdate('No Action')->onDelete('No Action');
+            $table->string('course_title');
+            $table->string('course_code');
+            $table->integer('number_of_question');
             $table->string('unique_id');
             $table->string('time');
+
+
             $table->timestamps();
         });
     }

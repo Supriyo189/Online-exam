@@ -81,9 +81,9 @@
         {{--Department--}}
         <div class="form-group">
           <select class="custom-select form-control" required name="department">
-            <option value="">Select Department</option>\
+            <option value="">Select exam type</option>
             @foreach ($depts as $item)
-                <option value="{{$item->id}}">{{$item->name}}</option>
+                <option value="{{$item->name}}">{{$item->name}}</option>
             @endforeach
             
           </select>

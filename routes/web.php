@@ -61,6 +61,7 @@ Route::group(['middleware' => 'auth'],function(){
 
         /*--------------- create exam -----------------*/
           Route::get('teacher/create_exam', 'Teacher\CreateExamController@create_exam');
+          Route::post('teacher/exam/create', 'Teacher\CreateExamController@create');
         /*----------------create exam -----------------*/
 
         /*--------------- manage exam -----------------*/

@@ -16,21 +16,29 @@
             <table class="table table-hover text-nowrap">
               <thead>
                 <tr>
-                  <th>S/N</th>
-                  <th>Name</th>
+                  <th>Course Title</th>
+                  <th>Course Code</th>
+                  <th>No.Question</th>
+                  <th>Time</th>
                   <th class="text-right">Action</th>
                 </tr>
               </thead>
               <tbody>
-                  
+                  @php
+                      $i = 1;
+                  @endphp
+                  @foreach ($all_exams as $item)
                   <tr>
-                    <td></td>
-                    <td></td>
+                    <td>{{$item->course_title}}</td>
+                    <td>{{$item->course_code}}</td>
+                    <td>{{$item->number_of_question}}</td>
+                    <td>{{$item->time}}</td>
                     <td class="text-right">
                         <button type="button" class="btn btn-primary btn-sm ediBtn">Edit</button>
                         <a onclick="" class="btn btn-danger btn-sm" href="">Del</a>
                     </td>
-                 </tr>
+                  </tr>
+                  @endforeach
                       
                   
                   

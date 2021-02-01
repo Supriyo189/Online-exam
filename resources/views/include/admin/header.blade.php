@@ -10,32 +10,20 @@
   <ul class="navbar-nav ml-auto">
     <li class="nav-item dropdown">
       <a class="nav-link" data-toggle="dropdown" href="#">
-       <h3 class="dropdown-item-title text-sm">Profile<i class="far fa-user-circle ml-2"></i></h3>
+       <h3 class="dropdown-item-title text-sm">{{ Auth::user()->name}}<i class="far fa-user-circle ml-2"></i></h3>
       </a>
-      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-        <div class="dropdown-item" >
-          <i class="fas fa-user mr-2"></i>
-          <input type="text" value="{{ Auth::user()->name}}">
-        </div>
-        <div class="dropdown-item">
-          <i class="fas fa-envelope mr-2"></i>
-          <input type="text" value="{{Auth::user()->email}}">
-        </div>
+      <div class="dropdown-menu dropdown-menu-right">
         <div class="dropdown-item">
           <i class="fas fa-user-edit mr-2"></i>
-          <a href="{{action('Admin\Manage_profileController@manage_profile')}}">Manage account</a>
-        </div>
-
-        <a href="{{ route('logout') }}"  onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();" class="dropdown-item nav-link text-danger">
-          <h3 class="text-sm text-center"><i class="fa fa-power-off mr-2"></i>Logout</h3>
-          
+          <a href="{{action('Admin\Manage_profileController@manage_profile')}}">Profile</a>
+        </div> 
+        <a href="{{ route('logout') }}"  onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="dropdown-item nav-link text-danger">
+          <h3 class="text-sm text-center"><i class="fa fa-power-off mr-2"></i>Logout</h3>  
         </a>
 
       </div>
-    </li>
-    
-  </ul>
+    </li>  
+  </ul> 
 </nav>
 <!-- /.navbar -->
 </nav>
