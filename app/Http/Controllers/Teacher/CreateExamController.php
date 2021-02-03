@@ -52,7 +52,15 @@ class CreateExamController extends Controller
     $id = $request->quiz_id;
 
     $ques_count =  Question::where('quiz_id',$id)->count();
-    $ques_length =  Question::where('quiz_id',$id)->count();
+    $ques_length =  Exam_info::where('id',$id)->value('number_of_question');
+
+    if ($ques_count < $ques_length) {
+      $exam = Exam_info::find($id);
+      return view('teacher.create_exam.question',compact('exam'));
+    }else{
+      $uniqueID = Exam_info::where('id',$id)->value('unique_id');
+      return view('teacher.create_exam.question_ready',compact('uniqueID'));
+    }
   }
   
 
