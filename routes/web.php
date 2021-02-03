@@ -49,7 +49,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::group(['middleware' => 'student'],function(){ 
 
         /*----------------Give Exam -----------------*/
-        Route::get('student/give_exam','Student\GiveExamController@give_exam');
+        Route::get('student/give_exam','Student\GiveExamController@give_exam')->name('give_exam');
         /*----------------Give Exam -----------------*/
 
         /*---------------- See Results -----------------*/
@@ -62,10 +62,14 @@ Route::group(['middleware' => 'auth'],function(){
         /*--------------- create exam -----------------*/
           Route::get('teacher/create_exam', 'Teacher\CreateExamController@create_exam');
           Route::post('teacher/exam/create', 'Teacher\CreateExamController@create');
+          Route::post('teacher/exam/question', 'Teacher\CreateExamController@question_store');
+
         /*----------------create exam -----------------*/
 
         /*--------------- manage exam -----------------*/
         Route::get('teacher/manage_exam', 'Teacher\ManageExamController@manage_exam');
+        Route::post('teacher/manage_exam/update', 'Teacher\ManageExamController@update');
+        Route::get('teacher/manage_exam/delete{id}', 'Teacher\ManageExamController@delete');
         /*----------------manage exam -----------------*/
 
         /*--------------- manage student -----------------*/
@@ -83,3 +87,6 @@ Route::get('/registration/form', 'RegistrationController@registration');
 Route::get('/manage_profile', 'Admin\Manage_profileController@manage_profile');
 
 Route::post('/update_profile','Admin\Manage_profileController@update_profile');
+
+
+// Route::request('url','action')->name('route');

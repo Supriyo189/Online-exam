@@ -43,12 +43,13 @@
           <!-- /.card-body -->
         </div>
         <!-- /.card -->
-      </div>
+      </div> 
     </div>
     <!-- /.row -->
   </div><!-- /.container-fluid -->
-@endsection
+@endsection 
 @section('script')
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
         $(function () {
             $("#updateForm").hide();

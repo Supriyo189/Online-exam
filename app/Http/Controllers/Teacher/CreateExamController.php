@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Department;
 use App\Examtype;
 use App\Exam_info;
+use App\Question;
 use Auth;
 class CreateExamController extends Controller
 {
@@ -28,9 +29,31 @@ class CreateExamController extends Controller
     $exam->examtype_id = $request->examtype_id;
     $exam->number_of_question = $request->number_of_question;
     $exam->time = $request->time;
-    $exam->unique_id = "11111hhh";
+    $exam->unique_id = $request->unique_id;
     $exam->teacher_id = Auth::user()->id;
     $exam->save();
-    return redirect()->back();
+    
+    return view('teacher.create_exam.question',compact('exam'));
   }
+
+
+  public function question_store(Request $request)
+  {
+    $question = new Question();
+    $question->question = $request->question;
+    $question->choice1 = $request->choice1;
+    $question->choice2 = $request->choice2;
+    $question->choice3 = $request->choice3;
+    $question->choice4 = $request->choice4;
+    $question->answer = $request->answer;
+    $question->quiz_id = $request->quiz_id;
+    $question->save();
+
+    $id = $request->quiz_id;
+
+    $ques_count =  Question::where('quiz_id',$id)->count();
+    $ques_length =  Question::where('quiz_id',$id)->count();
+  }
+  
+
 }

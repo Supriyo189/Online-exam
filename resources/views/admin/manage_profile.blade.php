@@ -32,7 +32,7 @@
                   <h3 class="profile-username text-center">{{Auth::user()->name}}</h3>
   
                   <p class="text-muted text-center">Department of {{Auth::user()->department}}</p>
-  
+                  
                   <ul class="list-group list-group-unbordered mb-3">
                     <li class="list-group-item">
                       <b>Followers</b> <a class="float-right">1,322</a>
@@ -159,59 +159,3 @@
   </script>
     
 @endsection
-
-
-
-
-
-
-
-{{--<div class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h4>My Profile</h4>
-                        <form method="POST" action="{{action('Admin\Manage_profileController@update_profile')}}">
-                            @csrf
-                            <input type="hidden" value="{{ Auth::user()->id}}" name="id">
-                            <div class="row">
-                                
-                                
-                                
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="">Department</label>
-                                        <input type="text" class="form-control" value="{{ Auth::user()->department}}">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="">Account Type</label>
-                                        <input type="text" class="form-control" value="{{ Auth::user()->accountType}}">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="">Student Id</label>
-                                        <input type="text" class="form-control" value="" name="stdID">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        
-                                    <button class="btn btn-primary">Update profile</button>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <img src="" alt="">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>--}}
