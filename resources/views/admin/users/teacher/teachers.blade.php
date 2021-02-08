@@ -29,6 +29,7 @@
                   <tr>
                     <td>{{$i++}}</td>
                     <td>{{$item->name}}</td>
+                    <td>{{$item->email}}</td>
                     <td class="text-right">
                         <button type="button" class="btn btn-primary btn-sm ediBtn" data-id="{{$item->id}}" data-name="{{$item->name}}">Edit</button>
                         <a onclick="" class="btn btn-danger btn-sm" href="">Del</a>

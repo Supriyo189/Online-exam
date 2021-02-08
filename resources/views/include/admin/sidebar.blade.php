@@ -79,6 +79,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{action('Teacher\ManageQuestionController@manage_question')}}" class="nav-link">
+              <i class="nav-icon fas fa-question"></i>
+              <p>
+                Manage Questions
+              </p>
+            </a>
+          </li>
           @endif
         
           <!---------------Admin Sidebar----------------------->
@@ -88,7 +96,6 @@
             <i class="nav-icon fas fa-users"></i>
             <p>
               User
-              <i class="fas fa-angle-left right"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
@@ -126,7 +133,6 @@
             <i class="nav-icon fas fa-clock"></i>
             <p>
               Exam type
-              <i class="fas fa-angle-left right"></i>
             </p>
           </a>
         </li>
@@ -135,7 +141,6 @@
             <i class="nav-icon fas fa-question"></i>
             <p>
               Questions
-              <i class="fas fa-angle-left right"></i>
             </p>
           </a>
         </li>
@@ -144,7 +149,6 @@
             <i class="nav-icon fas fa-poll-h"></i>
             <p>
               Results
-              <i class="fas fa-angle-left right"></i>
             </p>
           </a>
         </li>

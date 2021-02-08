@@ -19,9 +19,9 @@ class ManageExamController extends Controller
     }
     public function update(Request $request)
     {
-        $all_exams =  Exam_info::find($request->id);
+        $exam =  Exam_info::find($request->id);
         $exam->teacher_code = $request->teacher_code;
-        $all_exams->course_title = $request->course_title;
+        $exam->course_title = $request->course_title;
         $exam->course_code = $request->course_code;
         $exam->department_id = $request->department_id;
         $exam->examtype_id = $request->examtype_id;
@@ -29,13 +29,13 @@ class ManageExamController extends Controller
         $exam->time = $request->time;
         //$exam->unique_id = "11111hhh";
         $exam->teacher_id = Auth::user()->id;
-        $all_exams->save();
+        $exam->save();
         return back();
     }
     public function delete($id)
     {
-        $all_exams = Exam_info::find($id);
-        $all_exams->delete();
+        $exam = Exam_info::find($id);
+        $exam->delete();
         return back();
     }
 

@@ -1,0 +1,61 @@
+body
+{
+background-image: url(/coverpage_asset/img/img1.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
+}
+*{
+box-sizing: border-box;
+}
+.header
+{
+border:none ;
+float: left;
+width: 49%;
+font-size: 20px;
+color: whitesmoke;
+text-align: center;
+margin: 5px;
+}
+.button
+{
+border:none ;
+float: right;
+width: 49%;
+text-align: center;
+margin-top: 20px;
+}
+.paragraph
+{
+border: none; 
+float: left;   
+width: 50%;
+text-align: center;
+margin-left: 25%;
+margin-right: 20%;
+font-size: 20px;
+}
+
+.button input[type="submit"]
+{
+border: none;
+outline: none;
+height: 40px;
+margin: 10px;
+background:gray;
+color: #fff;
+font-size: 18px;
+border-radius: 20px;
+}
+.button input[type="submit"]:hover
+{
+cursor: pointer;
+background: #ffc107;
+color: #000;
+}
+.button a:hover
+{
+color: #ffc107;
+}

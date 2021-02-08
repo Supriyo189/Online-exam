@@ -50,6 +50,8 @@ Route::group(['middleware' => 'auth'],function(){
 
         /*----------------Give Exam -----------------*/
         Route::get('student/give_exam','Student\GiveExamController@give_exam')->name('give_exam');
+        Route::get('student/exam', 'Student\GiveExamController@question');
+        Route::post('student/participation', 'Student\GiveExamController@participation');
         /*----------------Give Exam -----------------*/
 
         /*---------------- See Results -----------------*/
@@ -64,23 +66,28 @@ Route::group(['middleware' => 'auth'],function(){
           Route::post('teacher/exam/create', 'Teacher\CreateExamController@create');
           Route::post('teacher/exam/question', 'Teacher\CreateExamController@question_store');
           Route::get('teacher/question-ready', 'Teacher\CreateExamController@question_ready');
-
         /*----------------create exam -----------------*/
 
         /*--------------- manage exam -----------------*/
-        Route::get('teacher/manage_exam', 'Teacher\ManageExamController@manage_exam');
-        Route::post('teacher/manage_exam/update', 'Teacher\ManageExamController@update');
-        Route::get('teacher/manage_exam/delete{id}', 'Teacher\ManageExamController@delete');
+          Route::get('teacher/manage_exam', 'Teacher\ManageExamController@manage_exam');
+          Route::post('teacher/manage_exam/update', 'Teacher\ManageExamController@update');
+          Route::get('teacher/manage_exam/delete{id}', 'Teacher\ManageExamController@delete');
         /*----------------manage exam -----------------*/
 
         /*--------------- manage student -----------------*/
           Route::get('teacher/manage_student', 'Teacher\ManageStudentController@manage_student');
         /*----------------manage student -----------------*/
 
+        /*----------------manage student -----------------*/
+        Route::get('teacher/manage_question', 'Teacher\ManageQuestionController@manage_question');
+        /*----------------manage student -----------------*/
+
      });
 });
 
 Auth::routes();
+
+Route::get('/coverpage', 'Coverpage\CoverpageController@coverpage');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/registration/form', 'RegistrationController@registration');
@@ -91,3 +98,5 @@ Route::post('/update_profile','Admin\Manage_profileController@update_profile');
 
 
 // Route::request('url','action')->name('route');
+
+

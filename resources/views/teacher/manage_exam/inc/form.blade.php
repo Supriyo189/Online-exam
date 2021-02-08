@@ -30,7 +30,7 @@
                         <div class="form-group row">
                           <label for="inputName" class="col-sm-2 col-form-label">Teacher Name</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputName" placeholder="enter your name or id.." name="teacher_code">
+                            <input type="text" class="form-control" id="inputName" placeholder="enter your name or id.." readonly name="teacher_code">
                           </div>
                         </div>
                         <div class="form-group row">
@@ -79,12 +79,6 @@
                               <input type="text" name="number_of_question" class="form-control mt-3" id="inputSkills" placeholder="Enter number of Question. Example: 10" >
                             </div>
                         </div>
-                          {{-- <div class="form-group row" id="student_id">
-                            <label for="inputSkills" class="col-sm-2 col-form-label">Unique Id</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="inputSkills" placeholder="" name="" >
-                            </div>
-                          </div> --}}
                         <div class="form-group row" id="student_id">
                             <label for="inputSkills" class="col-sm-2 col-form-label">Time</label>
                             <div class="col-sm-10">
