@@ -52,6 +52,7 @@ Route::group(['middleware' => 'auth'],function(){
         Route::get('student/give_exam','Student\GiveExamController@give_exam')->name('give_exam');
         Route::get('student/exam', 'Student\GiveExamController@question');
         Route::post('student/participation', 'Student\GiveExamController@participation');
+        Route::post('student/answer/submit', 'Student\GiveExamController@store_answer');
         /*----------------Give Exam -----------------*/
 
         /*---------------- See Results -----------------*/

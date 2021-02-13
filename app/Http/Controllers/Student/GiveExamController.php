@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Participation;
 use App\Exam_info;
 use App\Question;
-
+use App\Answer;
 class GiveExamController extends Controller
 {
     public function give_exam()
@@ -43,6 +43,27 @@ class GiveExamController extends Controller
 
 
             return view('student.exam.exam',compact('student_id','find_course','findTime','course','questions'));
+        }
+    }
+
+    public function store_answer(Request $request)
+    {
+        //
+        if ($request->ajax()) {
+            //dd($request->all());
+            $answer = new Answer();
+            $answer->stu_id = $request->student_id;
+            $answer->question = $request->question;
+            $answer->given_answer = $request->answer;
+            $answer->true_answer = $request->true_answer;
+            $answer->save();
+
+            if ($request->answer == $request->true_answer) {
+                $insert=Participation::where('id',$request->student_id)->increment('score');
+            }
+            return response($answer);
+        }else{
+            return "ajax not done";
         }
     }
 }

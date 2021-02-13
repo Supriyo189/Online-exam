@@ -30,18 +30,18 @@
 
                                 <div class="row p-3">
                                     <div class="col-md-12">
-                                        <form method="post" action="" class="">
-                                            
+                                        <form method="post" action="{{action('Student\GiveExamController@store_answer')}}" class="ansform">
+                                            @csrf
                         
                                             <h3 class="ml-2">{{$i++}}. {{$item->question}}?</h3>
                                             <div class="col-lg-12">
-                                                <input type="hidden" name="question" value="">
-                                                <input type="hidden" name="student_id" value="">
-                                                <input type="hidden" name="true_answer" value="">
-                                                <input name="answer" value="" type="radio"> {{$item->choice1}} <br>
-                                                <input name="answer" value="" type="radio"> {{$item->choice2}}<br>
-                                                <input name="answer" value="" type="radio"> {{$item->choice3}}<br>
-                                                <input name="answer" value="" type="radio"> {{$item->choice4}}<br>
+                                                <input type="hidden" name="question" value="{{$item->question}}">
+                                                <input type="hidden" name="student_id" value="{{$student_id}}">
+                                                <input type="hidden" name="true_answer" value="{{$item->answer}}">
+                                                <input name="answer" value="{{$item->choice1}}" type="radio"> {{$item->choice1}} <br>
+                                                <input name="answer" value="{{$item->choice2}}" type="radio"> {{$item->choice2}}<br>
+                                                <input name="answer" value="{{$item->choice3}}" type="radio"> {{$item->choice3}}<br>
+                                                <input name="answer" value="{{$item->choice4}}" type="radio"> {{$item->choice4}}<br>
                                                 <input type="submit" name="submit" value="submit" class="btn btn-primary" id="submitbtn">
                                             </div>
                                          </form> 
@@ -62,4 +62,50 @@
             </section>
         </div>
     </div>
+@endsection
+@section('script')
+
+<!-- script for time limitation of exam -->
+<script type="text/javascript">
+var timeoutHandle;
+function countdown(minutes) {
+    var seconds = 60;
+    var mins = minutes
+    function tick() {
+        var counter = document.getElementById("timer");
+        var current_minutes = mins-1
+        seconds--;
+        counter.innerHTML =
+        current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+        if( seconds > 0 ) {
+            timeoutHandle=setTimeout(tick, 1000);
+        } else {
+
+            if(mins > 1){
+
+               // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst
+               setTimeout(function () { countdown(mins - 1); }, 1000);
+
+            }
+        }
+    }
+    tick();
+}
+
+countdown('{{$findTime}}');
+
+</script>
+
+<!-- script for disable url -->
+<script type="text/javascript">
+    var time= '{{$findTime}}';
+    var realtime = time*60000;
+    setTimeout(function () {
+        alert('Time Out');
+        window.location.href= '{{url('/')}}';},
+   realtime);
+
+    
+</script>
+
 @endsection

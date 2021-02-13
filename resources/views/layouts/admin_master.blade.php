@@ -90,6 +90,43 @@
 <script src="{{asset('public/admin_asset')}}/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('public/admin_asset')}}/dist/js/demo.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+  });
+
+  $('.ansform').on('submit',function(e){
+      var form = $(this);
+      var submit = form.find("[type=submit]");
+      var submitOriginalText = submit.attr("value");
+
+      e.preventDefault();
+      var data = form.serialize();
+      var url = form.attr('action');
+      var post = form.attr('method');
+      $.ajax({
+          type : post,
+          url : url,
+          data :data,
+          success:function(data){
+             submit.attr("value", "Submitted");
+          },
+          beforeSend: function(){
+             submit.attr("value", "Loading...");
+             submit.prop("disabled", true);
+          },
+          error: function() {
+              submit.attr("value", submitOriginalText);
+              submit.prop("disabled", false);
+             // show error to end user
+          }
+      })
+  })
+</script>
 @yield('script')
 </body>
 </html>

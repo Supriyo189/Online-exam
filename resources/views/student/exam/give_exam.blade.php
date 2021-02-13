@@ -47,7 +47,7 @@
                       </div> 
                       <div class="form-group row">
                         <div class="offset-sm-4 col-sm-10">
-                          <button type="submit" class="btn btn-success">Submit</button>
+                          <button type="submit" class="btn btn-success">Enter in Exam Room</button>
                         </div>
                     </div>
                   </form>
