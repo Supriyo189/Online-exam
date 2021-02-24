@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{asset('public/coverpage_asset')}}/css/coverpage.css">
 
 </head>
-<body>
+<body style="background-image: url({{asset('public/coverpage_asset/img/img1.jpg')}})">
     <div class="header">
         
         <h1>Welcome To EXAMON</h1>

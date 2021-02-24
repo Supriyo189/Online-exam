@@ -9,6 +9,11 @@ Route::group(['middleware' => 'auth'],function(){
     
     Route::get('/','DashboardController@dashboard');
 
+    /*-----------------Signin & Signup-------------------*/
+      Route::get('usertype/sign_in','Admin\SignController@sign_in');
+      Route::get('usertype/registration','Admin\SignController@sign_up');
+    /*-----------------Signin & Signup-------------------*/
+
     Route::group(['middleware' => 'admin'],function(){
              /*---------------- Department -----------------*/
             Route::get('admin-department','Admin\DepartmentController@index');
@@ -31,18 +36,13 @@ Route::group(['middleware' => 'auth'],function(){
             Route::get('admin-usertype/admin','Admin\UsersController@admin');
             /*-----------------Users-------------------*/
 
-            /*-----------------Question-------------------*/
-            Route::get('admin/question','Admin\QuestionController@question');
-            /*-----------------Question-------------------*/
+             /*-----------------Exam-------------------*/
+             Route::get('admin/exam','Admin\Exam_Controller@exam');
+             Route::get('admin/exam/question/{unique_id}/{title}','Admin\Exam_Controller@question');
+             Route::get('Admin/exam/result/{unique_id}/{title}', 'Admin\Exam_Controller@result');
+             /*-----------------Exam-------------------*/
 
-             /*-----------------Result-------------------*/
-            Route::get('admin/result','Admin\ResultController@result');
-             /*-----------------Result-------------------*/
-
-             /*-----------------Signin & Signup-------------------*/
-            Route::get('usertype/sign_in','Admin\SignController@sign_in');
-            Route::get('usertype/registration','Admin\SignController@sign_up');
-             /*-----------------Signin & Signup-------------------*/
+             
     });
 
 
@@ -75,13 +75,11 @@ Route::group(['middleware' => 'auth'],function(){
           Route::get('teacher/manage_exam/delete{id}', 'Teacher\ManageExamController@delete');
         /*----------------manage exam -----------------*/
 
-        /*--------------- manage student -----------------*/
-          Route::get('teacher/manage_student', 'Teacher\ManageStudentController@manage_student');
-        /*----------------manage student -----------------*/
-
-        /*----------------manage student -----------------*/
-        Route::get('teacher/manage_question', 'Teacher\ManageQuestionController@manage_question');
-        /*----------------manage student -----------------*/
+        /*----------------Exam -----------------*/
+        Route::get('teacher/exam', 'Teacher\Exam_Controller@exam');
+        Route::get('teacher/exam/question/{unique_id}/{title}','Teacher\Exam_Controller@question');
+        Route::get('teacher/exam/result/{unique_id}/{title}','Teacher\Exam_Controller@result');
+        /*----------------Exam -----------------*/
 
      });
 });

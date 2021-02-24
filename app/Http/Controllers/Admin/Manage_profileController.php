@@ -21,6 +21,16 @@ class Manage_profileController extends Controller
         $profile->email= $request->email;
         $profile->department= $request->department;
         // $profile->password = $request->password;
+        if($request->hasFile('image')){
+            $extension = $request->image->extension();
+            $fileName = str_slug($request->name,'_').'_'.md5(date('Y-m-d H:i:s'));
+            $fileName = $fileName.'.'.$extension;
+    
+            $profile->image = $fileName;
+    
+            $request->image->move('public/uploads/profile',$fileName);
+    
+        }
         $profile->save();
         return back();
     }

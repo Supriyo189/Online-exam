@@ -9,6 +9,7 @@ use App\Participation;
 use App\Exam_info;
 use App\Question;
 use App\Answer;
+use Auth;
 class GiveExamController extends Controller
 {
     public function give_exam()
@@ -33,13 +34,14 @@ class GiveExamController extends Controller
             $participation->student_id = $stdID;
             $participation->unique_id = $examCode;
             $participation->score = $initialScore;
+            $participation->std_id = Auth::user()->id;
             $participation->save();
 
             $student_id = Participation::where('student_id',$stdID)->value('id');
             $find_course = Exam_info::where('unique_id',$examCode)->value('id');
             $findTime = Exam_info::where('unique_id',$examCode)->value('time');
             $course = Exam_info::where('unique_id',$examCode)->value('course_title');
-            $questions = Question::where('quiz_id',$find_course)->get();
+            $questions = Question::where('quiz_id',$find_course)->inRandomOrder()->get();
 
 
             return view('student.exam.exam',compact('student_id','find_course','findTime','course','questions'));

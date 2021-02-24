@@ -79,15 +79,7 @@
           </div>
         </div>
         {{--Department--}}
-        <div class="form-group">
-          <select class="custom-select form-control" required name="department">
-            <option value="">Select exam type</option>
-            @foreach ($depts as $item)
-                <option value="{{$item->name}}">{{$item->name}}</option>
-            @endforeach
-            
-          </select>
-        </div>
+        
         {{--Account Type--}}
         <div class="form-group">
             <select class="custom-select form-control" id="type" required name="accountType">
@@ -97,8 +89,17 @@
               <option value="Admin">Admin</option>
             </select>
         </div>
+        <div class="form-group" id="department">
+          <select class="custom-select form-control" required name="department">
+            <option value="">Select Department</option>
+            @foreach ($depts as $item)
+                <option value="{{$item->name}}">{{$item->name}}</option>
+            @endforeach
+            
+          </select>
+        </div>
         <div class="input-group mb-3" id="student_id">
-          <input id="" type="" class="form-control" placeholder="Student id" name="stdID" autocomplete="" >
+          <input id="std_id" type="text" class="form-control" placeholder="Student id" name="stdID">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-id-badge"></span>
@@ -144,18 +145,33 @@
   $(function ()
     {     
       $("#student_id").hide();
+      $("#department").hide();
       $('#type').change(function(){
         var type = $(this).val();
         if (type == 'Student') {
           $("#student_id").show();
-          $("#student_id").attr("required");
-        }else{
+          $("#std_id").attr('required', 'required');
+
+          $("#department").show();
+          $("#department").find('select').attr('required', 'required');
+        }else if(type == 'Teacher'){
           $("#student_id").hide();
+          $("#std_id").removeAttr('required', 'required');
+
+          $("#department").show();
+          $("#department").find('select').attr('required', 'required');
+        }else{
+          $("#department").hide();
+          $("#department").find('select').removeAttr('required', 'required');
+
+          $("#student_id").hide();
+          $("#std_id").removeAttr('required', 'required');
         }
       });
 
     });
 </script>
+
 
 </body>
 </html>

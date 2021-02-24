@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Department;
+use App\User;
 
 class Exam_info extends Model
 {
@@ -12,6 +13,10 @@ class Exam_info extends Model
     public function department()
     {
        return $this->belongsTo('App\Department','department_id');
+    }
+    public function user()
+    {
+       return $this->belongsTo('App\User','teacher_id');
     }
 }  
                                    

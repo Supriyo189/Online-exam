@@ -72,18 +72,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{action('Teacher\ManageStudentController@manage_student')}}" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+            <a href="{{action('Teacher\Exam_Controller@exam')}}" class="nav-link">
+              <i class="nav-icon fas fa-poll-h"></i>
               <p>
-                Manage Students
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{action('Teacher\ManageQuestionController@manage_question')}}" class="nav-link">
-              <i class="nav-icon fas fa-question"></i>
-              <p>
-                Manage Questions
+                Exams
               </p>
             </a>
           </li>
@@ -136,19 +128,12 @@
             </p>
           </a>
         </li>
+        
         <li class="nav-item has-treeview">
-          <a href="{{action('Admin\QuestionController@question')}}" class="nav-link">
-            <i class="nav-icon fas fa-question"></i>
-            <p>
-              Questions
-            </p>
-          </a>
-        </li>
-        <li class="nav-item has-treeview">
-          <a href="{{action('Admin\ResultController@result')}}" class="nav-link">
+          <a href="{{action('Admin\Exam_Controller@exam')}}" class="nav-link">
             <i class="nav-icon fas fa-poll-h"></i>
             <p>
-              Results
+              Exams
             </p>
           </a>
         </li>

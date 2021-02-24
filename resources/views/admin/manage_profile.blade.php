@@ -24,8 +24,11 @@
               <div class="card card-primary card-outline">
                 <div class="card-body box-profile">
                   <div class="text-center">
+                    {{-- @if (Auth::user()->image == )
+                     {{asset('public/user_profile/avatar7.png')}}   
+                    @endif --}}
                     <img class="profile-user-img img-circle img-circle"
-                         src="{{asset('public/user_profile/avatar7.png')}}"
+                         src="{{(Auth::user()->image == 'default.jpg') ? asset('public/user_profile/avatar7.png') : asset('public/uploads/profile/'.Auth::user()->image)}}"
                          alt="User profile picture">
                   </div>
   
@@ -61,7 +64,7 @@
                     <a class="ml-1" style="font-size: 20px">Settings</a>
                 </div><!-- /.card-header -->
                 <div class="card-body">
-                    <form method="POST" class="form-horizontal" action="{{action('Admin\Manage_profileController@update_profile')}}">
+                    <form method="POST" class="form-horizontal" action="{{action('Admin\Manage_profileController@update_profile')}}" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" value="{{ Auth::user()->id}}" name="id">
                         <div class="form-group row">
@@ -76,12 +79,6 @@
                             <input type="email" class="form-control" id="inputEmail" placeholder="Email" value="{{ Auth::user()->email}}" name="email">
                           </div>
                         </div>
-                        {{-- <div class="form-group row">
-                          <label for="inputName2" class="col-sm-2 col-form-label">Password</label>
-                          <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputName2" placeholder="Password" name="password">
-                          </div>
-                        </div> --}}
                         <div class="form-group row">
                           <label for="inputSkills" class="col-sm-2 col-form-label">Department</label>
                           <div class="col-sm-10">
@@ -106,10 +103,13 @@
                             </div>
                           </div>
                           <div class="form-group row" id="student_id">
-                            <label for="inputSkills" class="col-sm-2 col-form-label">Uload New Image</label>
+                            <label for="inputSkills" class="col-sm-2 col-form-label">Upload New Image</label>
                             <div class="col-sm-10">
-                              <input type="file" class="mt-2" id="inputSkills" placeholder="student id" name="stdID" value="">
+                              <input type="file" class="mt-2" id="inputSkills" name="image" onchange="document.getElementById('profile_image').src = window.URL.createObjectURL(this.files[0])">
                             </div>
+                          </div>
+                          <div class="form-group row" id="student_id">
+                            <img id="profile_image" width="300" height="100" />
                           </div>
                           <div class="form-group row">
                             <div class="offset-sm-2 col-sm-10">
