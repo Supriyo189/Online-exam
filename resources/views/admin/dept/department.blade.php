@@ -3,8 +3,8 @@
     Department
 @endsection
 @section('content')
-<section class="content">
-    <div class="container-fluid">
+<section class="content" >
+    <div class="container-fluid" >
       <!-- /.row -->
       <div class="row mt-3">
           {{-- Form --}}

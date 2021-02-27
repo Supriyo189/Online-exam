@@ -9,6 +9,6 @@ class CoverpageController extends Controller
 {
     public function coverpage()
     {
-        return view('coverpage.coverpage');
+        return view('coverpage.coverpage_main');
     }
 }

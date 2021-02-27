@@ -26,12 +26,6 @@ class DepartmentController extends Controller
     return back();
     }
 
-    // public function update_page($id)
-    // {
-    //     $department = Department::find($id);
-    //     return view('admin.dept.update',compact('department'));
-    // }
-
     public function update(Request $request)
     {
         //return $request->id;
@@ -41,4 +35,5 @@ class DepartmentController extends Controller
         $department->save();
         return back();
     }
+    
 }

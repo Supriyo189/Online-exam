@@ -2,10 +2,17 @@
 @section('content')
     
 <div class="container-fluid">
+  <section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+               
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+  </section>
     <!-- /.row -->
     <div class="row mt-3">
-        {{-- Form --}}
-        {{-- Form --}}
       <div class="col-12">
         <div class="card">
           <div class="card-header">
@@ -18,8 +25,9 @@
                 <tr>
                   <th>S/N</th>
                   <th>Name</th>
-                  <th>Email</th>
-                  <th class="text-right">Action</th>
+                  <th>Dept.</th>
+                 
+                  <th class="text-right">Email</th>
                 </tr>
               </thead>
               <tbody>
@@ -30,10 +38,9 @@
                   <tr>
                     <td>{{$i++}}</td>
                     <td>{{$item->name}}</td>
-                    <td>{{$item->email}}</td>
+                    <td>{{$item->department}}</td>
                     <td class="text-right">
-                        <button type="button" class="btn btn-primary btn-sm ediBtn" data-id="{{$item->id}}" data-name="{{$item->name}}">Edit</button>
-                        <a onclick="" class="btn btn-danger btn-sm" href="">Del</a>
+                      {{$item->email}}
                     </td>
                  </tr>
                       

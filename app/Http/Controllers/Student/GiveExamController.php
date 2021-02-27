@@ -27,24 +27,31 @@ class GiveExamController extends Controller
         $initialScore = 0;
 
         $check = Participation::where('student_id',$stdID)->where('unique_id',$examCode)->count();
-        if ($check > 0) {
-            return redirect()->back()->with(['message' => 'You already done this exam!']);
+        $check_code = Exam_info::where('unique_id',$request->exam_code)->first();
+        if ($check_code !=null) {
+            if ($check > 0) {
+                return redirect()->back()->with(['message' => 'You already done this exam!']);
+            }
+            
+            else{
+                $participation = new Participation();
+                $participation->student_id = $stdID;
+                $participation->unique_id = $examCode;
+                $participation->score = $initialScore;
+                $participation->std_id = Auth::user()->id;
+                $participation->save();
+    
+                $student_id = Participation::where('student_id',$stdID)->value('id');
+                $find_course = Exam_info::where('unique_id',$examCode)->value('id');
+                $findTime = Exam_info::where('unique_id',$examCode)->value('time');
+                $course = Exam_info::where('unique_id',$examCode)->value('course_title');
+                $questions = Question::where('quiz_id',$find_course)->inRandomOrder()->get();
+    
+    
+                return view('student.exam.exam',compact('student_id','find_course','findTime','course','questions'));
+            }
         }else{
-            $participation = new Participation();
-            $participation->student_id = $stdID;
-            $participation->unique_id = $examCode;
-            $participation->score = $initialScore;
-            $participation->std_id = Auth::user()->id;
-            $participation->save();
-
-            $student_id = Participation::where('student_id',$stdID)->value('id');
-            $find_course = Exam_info::where('unique_id',$examCode)->value('id');
-            $findTime = Exam_info::where('unique_id',$examCode)->value('time');
-            $course = Exam_info::where('unique_id',$examCode)->value('course_title');
-            $questions = Question::where('quiz_id',$find_course)->inRandomOrder()->get();
-
-
-            return view('student.exam.exam',compact('student_id','find_course','findTime','course','questions'));
+            return redirect()->back()->with(['message' => 'Exam code is not valid!']);
         }
     }
 

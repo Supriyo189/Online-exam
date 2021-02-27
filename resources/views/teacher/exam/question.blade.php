@@ -53,13 +53,7 @@
                             @endforeach
                         </div>  
                     </div>
-                    {{--<div class="col-md-2">
-                        <nav class="pull-right">
-                            <div class="sidebar-nav-fixed affix">
-                                <h4><b>Time <span id="timer" style="color: red">0.00 </span></b></h4>
-                            </div>
-                        </nav>
-                    </div>--}}
+                    
                 </div>
             </div>
         </section>

@@ -7,7 +7,7 @@ Route::get('error',function(){
 Route::group(['middleware' => 'auth'],function(){
 
     
-    Route::get('/','DashboardController@dashboard');
+    Route::get('dashboard','DashboardController@dashboard');
 
     /*-----------------Signin & Signup-------------------*/
       Route::get('usertype/sign_in','Admin\SignController@sign_in');
@@ -67,6 +67,9 @@ Route::group(['middleware' => 'auth'],function(){
           Route::post('teacher/exam/create', 'Teacher\CreateExamController@create');
           Route::post('teacher/exam/question', 'Teacher\CreateExamController@question_store');
           Route::get('teacher/question-ready', 'Teacher\CreateExamController@question_ready');
+
+          Route::get('teacher/question-edit/{unique_id}/{title}', 'Teacher\CreateExamController@question_edit');
+          Route::post('teacher/exam/question_update', 'Teacher\CreateExamController@question_update');
         /*----------------create exam -----------------*/
 
         /*--------------- manage exam -----------------*/
@@ -84,9 +87,9 @@ Route::group(['middleware' => 'auth'],function(){
      });
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/coverpage', 'Coverpage\CoverpageController@coverpage');
+Route::get('/', 'Coverpage\CoverpageController@coverpage')->name('coverpage');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/registration/form', 'RegistrationController@registration');

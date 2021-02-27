@@ -4,8 +4,17 @@
  @include('teacher.manage_exam.inc.form') 
  {{-- Form --}}  
 <div class="container-fluid">
+  <section class="content-header">
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-sm-6">
+                
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
     <!-- /.row -->
-    <div class="row mt-3">
+    <div class="row">
         
       <div class="col-12">
         <div class="card">
@@ -18,13 +27,14 @@
               <thead>
                 <tr>
                   <th>S/N</th>
-                  <th>Teacher Name/ID</th>
+                  
                   <th>Course Title</th>
                   <th>Course Code</th>
                   <th>Dept</th>
                   <th>No.Question</th>
                   <th>Time</th>
-                  <th class="text-right">Action</th>
+                  <th>Question</th>
+                  <th class="text-right">Exam Info</th>
                 </tr>
               </thead>
               <tbody>
@@ -34,16 +44,18 @@
                   @foreach ($all_exams as $item)
                   <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$item->teacher_code}}</td>
+                    
                     <td>{{$item->course_title}}</td>
                     <td>{{$item->course_code}}</td>
                     <td>{{$item->department->name}}</td>
                     {{-- <td>{{$item->department['name']}}</td> --}}
                     <td>{{$item->number_of_question}}</td>
                     <td>{{$item->time}}</td>
+                    <td>
+                      <a type="button" class="btn btn-primary btn-sm " href="{{action('Teacher\CreateExamController@question_edit',['unique_id' => $item->id,'title' => str_slug($item->course_title)])}}"><i class="fas fa-edit pr-2" ></i>Edit</a>
+                    </td>
                     <td class="text-right">
-                        <button type="button" class="btn btn-primary btn-sm ediBtn" data-id="{{$item->id}}" data-title="{{$item->course_title}}" data-ccode="{{$item->course_code}}" data-tcode="{{$item->teacher_code}}" data-noq="{{$item->number_of_question}}" data-time="{{$item->time}}" data-dept="{{$item->department_id}}" data-etype="{{$item->examtype_id}}">Edit</button>
-                        <a onclick="return confirm('Are you sure to delete?')" class="btn btn-danger btn-sm" href="{{action('Teacher\ManageExamController@delete',['id'=>$item->id])}}">Del</a>
+                        <button type="button" class="btn btn-primary btn-sm ediBtn" data-id="{{$item->id}}" data-title="{{$item->course_title}}" data-ccode="{{$item->course_code}}" data-tcode="{{$item->teacher_code}}" data-noq="{{$item->number_of_question}}" data-time="{{$item->time}}" data-dept="{{$item->department_id}}" data-etype="{{$item->examtype_id}}"><i class="fas fa-edit pr-2"></i>Edit</button>
                     </td>
                   </tr>
                   @endforeach         
@@ -94,3 +106,4 @@
       });
     </script>
 @endsection
+

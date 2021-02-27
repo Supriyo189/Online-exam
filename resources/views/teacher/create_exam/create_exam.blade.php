@@ -35,7 +35,7 @@
                             <input type="text" class="form-control mt-2" readonly value="{{Auth::user()->name}}" placeholder="enter your name or id.." name="teacher_code">
                           </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group row" >
                           <label class="col-sm-2 col-form-label">Course Title</label>
                           <div class="col-sm-10">
                             <input type="text" class="form-control" placeholder="enter course title" name="course_title">
@@ -80,12 +80,6 @@
                               <input type="text" name="number_of_question" class="form-control mt-2" id="inputSkills" placeholder="Enter number of Question. Example: 10" >
                             </div>
                           </div>
-                          {{-- <div class="form-group row" id="student_id">
-                            <label for="inputSkills" class="col-sm-2 col-form-label">Unique Id</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="inputSkills" placeholder="" name="" >
-                            </div>
-                          </div> --}}
                           <div class="form-group row" id="student_id">
                             <label for="inputSkills" class="col-sm-2 col-form-label">Time</label>
                             <div class="col-sm-10">
@@ -96,7 +90,7 @@
                           <input type="hidden" name="unique_id" value="{{substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrtuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 5)), 0, 5)}}">
                           
                           <div class="form-group row">
-                            <div class="offset-sm-4 col-sm-10">
+                            <div class="offset-sm-5 pt-5 col-sm-10">
                               <button type="submit" class="btn btn-success">Ceate Exam Info</button>
                             </div>
                           </div>

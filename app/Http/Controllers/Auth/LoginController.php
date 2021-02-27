@@ -29,7 +29,7 @@ class LoginController extends Controller
     protected function authenticated()
     {
         if (Auth::user()->accountType == 'Teacher' || Auth::user()->accountType == 'Admin' || Auth::user()->accountType == 'Student') {
-            return redirect('/');
+            return redirect('dashboard');
         }
     }
 

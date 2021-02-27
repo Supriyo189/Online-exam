@@ -19,10 +19,13 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition register-page">
+<body class="hold-transition register-page" style="background-color: rgb(46, 139, 123)">
 <div class="register-box">
-  <div class="register-logo">
-    <a href="#"><b>Admin</b>LTE</a>
+  <div class="login-logo">
+    <a href="{{action('Coverpage\CoverpageController@coverpage')}}">Back to <b>Home</b></a>
+  </div>
+  <div class="login-logo">
+    <p><b>Exam</b>On</p>
   </div>
 
   <div class="card">

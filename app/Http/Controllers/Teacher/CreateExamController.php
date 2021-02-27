@@ -62,6 +62,35 @@ class CreateExamController extends Controller
       return view('teacher.create_exam.question_ready',compact('uniqueID'));
     }
   }
-  
+  public function question_edit($quiz_id){
+    $course = Exam_info::where('unique_id')->value('course_title');
+    $questions = Question::where('quiz_id',$quiz_id)->get();
+    return view('teacher.question_edit.question_edit',compact('questions','course'));
+  }
+  public function question_update(Request $request)
+  {
+    $question = Question::find($request->id);
+    $question->question = $request->question;
+    $question->choice1 = $request->choice1;
+    $question->choice2 = $request->choice2;
+    $question->choice3 = $request->choice3;
+    $question->choice4 = $request->choice4;
+    $question->answer = $request->answer;
+    $question->quiz_id = $request->quiz_id;
+    $question->save();
+
+    $id = $request->quiz_id;
+
+    $ques_count =  Question::where('quiz_id',$id)->count();
+    $ques_length =  Exam_info::where('id',$id)->value('number_of_question');
+
+    if ($ques_count < $ques_length) {
+      $exam = Exam_info::find($id);
+      return view('teacher.create_exam.question',compact('exam'));
+    }else{
+      $uniqueID = Exam_info::where('id',$id)->value('unique_id');
+      return view('teacher.create_exam.question_ready',compact('uniqueID'));
+    }
+  }
 
 }
