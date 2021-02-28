@@ -1,47 +1,66 @@
 @extends('layouts.admin_master')
 @section('title','Teacher')
 @section('content')
-<div class="container-fluid">
-    <!-- /.row -->
-    <section class="content-header">
+
+    
+<section class="content-header">
+  <div class="container-fluid">
+      <div class="row mb-2">
+          <div class="col-sm-6">
+              
+          </div>
+      </div>
+  </div><!-- /.container-fluid -->
+</section>
       <div class="container-fluid">
-          <div class="row mb-2">
-              <div class="col-sm-6">
-                  <h4> Over View</h4>
-              </div>
+          <div class="col-md-5"></div>
+          <div class="row mb-3">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">  
+                  <div class="text-center">
+                   <h3 style="color:green"> Profile</h3>
+                  </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">  
+              <!-- Profile Image -->
+              <div class="card card-primary ">
+                <div class="card-body box-profile">
+                  <div class="text-center">
+                    <img class="profile-user-img img-circle img-circle"
+                         src="{{(Auth::user()->image == 'default.jpg') ? asset('public/user_profile/avatar7.png') : asset('public/uploads/profile/'.Auth::user()->image)}}"
+                         alt="User profile picture" style="width: 185px; height:213px;">
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>             
+            </div>
+            <div class="col-md-4">
+              <!-- Profile Image -->
+              <div class="card card-primary ">
+                <div class="card-body box-profile">                 
+                  <ul class="list-group list-group-unbordered mb-3">
+                    <li class="list-group-item">
+                      <b>Name :</b> <a class="float-right">{{Auth::user()->name}}</a>
+                    </li>
+                    <li class="list-group-item">
+                      <b>Email Address :</b> <a class="float-right">{{Auth::user()->email}}</a>
+                    </li>
+                    <li class="list-group-item">
+                      <b>Department :</b> <a class="float-right">{{Auth::user()->department}}</a>
+                    </li>
+                    <li class="list-group-item">
+                      <b>Account :</b> <a class="float-right">{{Auth::user()->accountType}}</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- /.card-body -->
+              </div>           
+            </div>
           </div>
       </div><!-- /.container-fluid -->
-    </section>
-      <!-- /.row -->
-      <div class="row mt-3">
-        <div class="col-2"></div>
-        <div class="col-2">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title" style="margin-left:5px;">Total Student</h3>
-            </div>
-            <!-- /.card-body -->
-            {{$participation}}
-          </div>
-          <!-- /.card -->
-        </div>
-        <div class="col-2">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Total Teacher</h3>
-            </div>
-            <!-- /.card-body -->
-            <div class="card-body">
-
-            </div>
-            
-          </div>
-          <!-- /.card -->
-        </div>
-        
-      </div>
-      
-      </div>
-    <!-- /.row -->
-  </div><!-- /.container-fluid -->
+  
 @endsection

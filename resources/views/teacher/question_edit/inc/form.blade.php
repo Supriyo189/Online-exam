@@ -40,9 +40,12 @@
                         </div> 
                         <div class="form-group row">
                           <div class="col-sm-12">
-                            <input type="text" class="form-control" placeholder="true answer" name="answer" required>
+                            <input type="text" class="form-control" placeholder="correct answer" name="answer" required>
                           </div>
                         </div> 
+                       
+                        <input type="hidden" class="form-control" name="unique_id">
+                        
                         <div class="form-group row">
                           <div class="offset-sm-5 col-sm-10">
                             <button type="submit" class="btn btn-success">Save</button>

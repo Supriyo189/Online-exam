@@ -12,53 +12,94 @@
     </div><!-- /.container-fluid -->
   </section>
     <!-- /.row -->
-   
+   <section class="conent">
+     <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4 col-6">
+          <!-- small box -->
+          <div class="small-box bg-info">
+            <div class="inner">
+              <h3>{{$user}}</h3>
 
-    <div class="row mt-3">
-      <div class="col-4">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Total Student</h3>
+              <p>User Registrations</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-          <!-- /.card-body -->
-          {{$student}}
+        </div>
+        <!-- ./col -->
+      </div>
+      <div class="row">
+        <!-- ./col -->
+        <div class="col-lg-4 col-6">
+          <!-- small box -->
+          <div class="small-box bg-success">
+            <div class="inner">
+              <h3>{{$student}}</h3>
 
-        </div>
-        <!-- /.card -->
-      </div>
-      <div class="col-4">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Total Teacher</h3>
+              <p>Student Registrations</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <a href="{{action('Admin\UsersController@student')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-          <!-- /.card-body -->
-          {{$teacher}}
         </div>
-        <!-- /.card -->
-      </div>
-      <div class="col-4">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Total Admin</h3>
+        <!-- ./col -->
+        <div class="col-lg-4 col-6">
+          <!-- small box -->
+          <div class="small-box bg-warning">
+            <div class="inner">
+              <h3>{{$teacher}}</h3>
+
+              <p>Teacher Registrations</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-user-friends"></i>
+            </div>
+            <a href="{{action('Admin\UsersController@teacher')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-          <!-- /.card-body -->
-          {{$admin}}
         </div>
-        <!-- /.card -->
-      </div>
-    </div>
-    <div class="row mt-3">
-      <div class="col-4">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Total Exams</h3>
+        <!-- ./col -->
+        <div class="col-lg-4 col-6">
+          <!-- small box -->
+          <div class="small-box bg-danger">
+            <div class="inner">
+              <h3>{{$admin}}</h3>
+
+              <p>Admin</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <a href="{{action('Admin\UsersController@admin')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-          <!-- /.card-body -->
-          {{$exam}}
         </div>
-        <!-- /.card -->
+        <!-- ./col -->
       </div>
-    </div>
+      <div class="row">
+        <div class="col-lg-4 col-6">
+          <!-- small box -->
+          <div class="small-box" style="background-color: blueviolet">
+            <div class="inner">
+              <h3>{{$exam}}</h3>
+
+              <p>Total Exams</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-edit"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+     </div>
+   </section>
+
+    
         
     
     
