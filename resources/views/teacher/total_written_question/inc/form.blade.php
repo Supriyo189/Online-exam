@@ -79,6 +79,12 @@
                               <input type="text" name="number_of_question" class="form-control mt-3" id="inputSkills" placeholder="Enter number of Question. Example: 10"  readonly>
                             </div>
                         </div>
+                        <div class="form-group row" id="type">
+                          <label for="inputSkills" class="col-sm-2 col-form-label">Total Marks</label>
+                          <div class="col-sm-10">
+                            <input type="text" name="marks" class="form-control mt-3" id="inputSkills" placeholder="Enter total marks of Question. Example: 10"  readonly>
+                          </div>
+                      </div>
                         <div class="form-group row" id="student_id">
                             <label for="inputSkills" class="col-sm-2 col-form-label">Time</label>
                             <div class="col-sm-10">

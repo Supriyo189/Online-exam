@@ -4,20 +4,22 @@ namespace App\Http\Controllers\Teacher;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 use App\Department;
 use App\Examtype;
-use App\Exam_info;
+use App\Written;
 use Auth;
-class ManageExamController extends Controller
+
+class TotallWrittenController extends Controller
 {
-    public function manage_exam()
+    public function total_question()
     {
         $depts = Department::all();
         $examtypes = Examtype::all();
-        $all_exams = Exam_info::where('teacher_id',Auth::user()->id)->get();
-       return view('teacher.manage_exam.manage_exam',compact('all_exams','depts','examtypes'));
+        $all_writtens = Written::where('teacher_id',Auth::user()->id)->get();
+       return view('teacher.total_written_question.total_question',compact('all_writtens','depts','examtypes'));
     }
-    public function update(Request $request)
+    public function total_question_update(Request $request)
     {
         $exam =  Exam_info::find($request->id);
         $exam->teacher_code = $request->teacher_code;
@@ -27,16 +29,15 @@ class ManageExamController extends Controller
         $exam->examtype_id = $request->examtype_id;
         $exam->number_of_question = $request->number_of_question;
         $exam->time = $request->time;
+        $exam->marks = $request->marks;
         $exam->teacher_id = Auth::user()->id;
         $exam->save();
         return back();
     }
-    public function delete($id)
+    public function total_question_delete($id)
     {
         $exam = Exam_info::find($id);
         $exam->delete();
         return back();
     }
-
-    
 }

@@ -36,7 +36,7 @@
                         <div class="form-group row">
                           <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputName" placeholder="Full Name" value="{{ Auth::user()->name}}" name="name">
+                            <input type="text" class="form-control" id="inputName" placeholder="Full Name" value="{{ Auth::user()->name}}" name="name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)">
                           </div>
                         </div>
                         <div class="form-group row">

@@ -66,8 +66,7 @@ Route::group(['middleware' => 'auth'],function(){
           Route::get('teacher/create_exam', 'Teacher\CreateExamController@create_exam');
           Route::post('teacher/exam/create', 'Teacher\CreateExamController@create');
           Route::post('teacher/exam/question', 'Teacher\CreateExamController@question_store');
-          Route::get('teacher/question-ready', 'Teacher\CreateExamController@question_ready');
-
+         
           Route::get('teacher/question-edit/{unique_id}/{title}', 'Teacher\CreateExamController@question_edit');
           Route::post('teacher/exam/question_update', 'Teacher\CreateExamController@question_update');
         /*----------------create exam -----------------*/
@@ -83,6 +82,28 @@ Route::group(['middleware' => 'auth'],function(){
         Route::get('teacher/exam/question/{unique_id}/{title}','Teacher\Exam_Controller@question');
         Route::get('teacher/exam/result/{unique_id}/{title}','Teacher\Exam_Controller@result');
         /*----------------Exam -----------------*/
+
+        /*---------------------Written info and question create--------------------------*/
+        Route::get('teacher/written_question', 'Teacher\WrittenController@create_question');
+        Route::post('teacher/written_question/create', 'Teacher\WrittenController@create');
+        Route::post('teacher/written_question/question', 'Teacher\WrittenController@written_question_store');
+
+        Route::get('teacher/written_question-edit/{quiz_id}/{title}', 'Teacher\WrittenController@written_question_edit');
+        Route::post('teacher/written_question/question_update', 'Teacher\WrittenController@question_update');
+        
+        /*---------------------Written info and question create--------------------------*/
+
+        /*---------------------Total Written and update--------------------------*/
+        Route::get('teacher/total_question', 'Teacher\TotallWrittenController@total_question');
+        Route::post('teacher/total_question/update', 'Teacher\TotallWrittenController@total_question_update');
+        Route::get('teacher/total_question/delete{id}', 'Teacher\TotallWrittenController@total_question_delete');
+        /*---------------------Total Written--------------------------*/
+
+        /*----------------Total written qustion view -----------------*/
+        Route::get('teacher/view_written_question', 'Teacher\WrittenQuestionView@view_written_question');
+        Route::get('teacher/exam/written_question/{id}/{title}','Teacher\WrittenQuestionView@written_question');
+        
+        /*----------------Total written qustion view-----------------*/
 
      });
 });

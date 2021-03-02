@@ -22,8 +22,9 @@ class DashboardController extends Controller
             return view('admin.dashboard',compact('student','teacher','admin','exam','user'));
         }
         elseif(Auth::user()->accountType == 'Teacher'){
+            $exam = Exam_info::where('teacher_id',Auth::user()->id)->count();
             $participation = Participation::where('unique_id','std_id')->count();
-            return view('teacher.dashboard',compact('participation'));
+            return view('teacher.dashboard',compact('participation','exam'));
         }else{
             $student_id = User::where('accountType','Student')->get();
             return view('student.dashboard',compact('student_id'));

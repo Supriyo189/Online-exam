@@ -51,7 +51,7 @@
                 <div class="item active">
                     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url({{asset('public/coverpage_asset/img/img2.jpg')}});"></div>
                     <div class="carousel-caption">
-                        <h2 class="animated bounceInRight" style="animation-delay: 1s"> EXAMON <span></span></h2>
+                        <h2 class="animated bounceInRight" style="animation-delay: 1s; font-size:25px;"> Online Examination Portal<span></span></h2>
                         <p class="animated bounceInLeft" style="animation-delay: 2s; font-size: 20px;">
                             Online examination referred as e-examination,are the examination conducted through the internet 
                             or in an intarnet for a remote candidate. The system will have the ability to automatically process 
