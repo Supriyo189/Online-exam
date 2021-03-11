@@ -1,6 +1,6 @@
 @extends('layouts.admin_master')
 @section('title')
-   Exam Info
+   Exam Info result
 @endsection
 @section('content')
 

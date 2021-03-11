@@ -77,13 +77,13 @@
                         <div class="form-group row" id="type">
                             <label for="inputSkills" class="col-sm-2 col-form-label">Number of question</label>
                             <div class="col-sm-10">
-                              <input type="text" name="number_of_question" class="form-control mt-2" id="inputSkills" placeholder="Enter number of Question. Example: 10" >
+                              <input type="number" name="number_of_question" class="form-control mt-2" id="inputSkills" placeholder="Enter number of Question. Example: 10" >
                             </div>
                           </div>
                           <div class="form-group row" id="student_id">
                             <label for="inputSkills" class="col-sm-2 col-form-label">Time</label>
                             <div class="col-sm-10">
-                              <input type="text" name="time" class="form-control" id="inputSkills" placeholder="Enter time limit. Example: 10" name="">
+                              <input type="number" name="time" class="form-control" id="inputSkills" placeholder="Enter time limit. Example: 10 min" >
                             </div>
                           </div>
 

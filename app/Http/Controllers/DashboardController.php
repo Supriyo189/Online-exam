@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Exam_info;
 use App\Participation;
+use App\Written;
 use Auth;
 
 class DashboardController extends Controller
@@ -19,12 +20,14 @@ class DashboardController extends Controller
             $teacher = User::where('accountType','Teacher')->count();
             $admin = User::where('accountType','Admin')->count();
             $exam = Exam_info::count();
-            return view('admin.dashboard',compact('student','teacher','admin','exam','user'));
+            $question = Written::count();
+            return view('admin.dashboard',compact('student','teacher','admin','exam','user','question'));
         }
         elseif(Auth::user()->accountType == 'Teacher'){
+            $written = Written::where('teacher_id',Auth::user()->id)->count();
             $exam = Exam_info::where('teacher_id',Auth::user()->id)->count();
-            $participation = Participation::where('unique_id','std_id')->count();
-            return view('teacher.dashboard',compact('participation','exam'));
+            $participation = Participation::where('unique_id','StdID')->count();
+            return view('teacher.dashboard',compact('participation','exam','written'));
         }else{
             $student_id = User::where('accountType','Student')->get();
             return view('student.dashboard',compact('student_id'));

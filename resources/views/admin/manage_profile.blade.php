@@ -48,7 +48,7 @@
                         <div class="form-group row">
                           <label for="inputSkills" class="col-sm-2 col-form-label">Department</label>
                           <div class="col-sm-10">
-                            <input type="text" name="department" class="form-control" id="inputSkills" placeholder="Department" value="{{ Auth::user()->department}}" list="departments">
+                            <input type="text" name="department" class="form-control" id="inputSkills" placeholder="Department" value="{{ Auth::user()->department}}" list="departments" readonly>
                             <datalist id="departments">
                               @foreach ($depts as $item)
                                   <option value="{{$item->name}}">
@@ -59,18 +59,24 @@
                         <div class="form-group row" id="type">
                             <label for="inputSkills" class="col-sm-2 col-form-label">Account type</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" id="inputSkills" placeholder="account type" value="{{ Auth::user()->accountType}}">
+                              <input type="text" class="form-control" id="inputSkills" placeholder="account type" value="{{ Auth::user()->accountType}}" disabled>
                             </div>
                           </div>
+                          @if (Auth::user()->accountType == 'Student')
                           <div class="form-group row" id="student_id">
                             <label for="inputSkills" class="col-sm-2 col-form-label">Student Id</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" id="inputSkills" placeholder="student id" name="stdID" value="{{ Auth::user()->StdID}}">
+                              <input type="text" readonly class="form-control" id="inputSkills" placeholder="student id" name="stdID" value="{{ Auth::user()->StdID}}">
                             </div>
                           </div>
-                          <div class="form-group row" id="student_id">
-                            <label for="inputSkills" class="col-sm-2 col-form-label">Upload New Image</label>
-                            <div class="col-sm-10">
+                          @endif
+                          <div class="form-group row">
+                            <label for="inputSkills" class="col-sm-4 col-form-label"><a href="{{action('ChangePasswordController@index')}}">Change password</a></label>
+                            
+                          </div>
+                          <div class="form-group row" id="">
+                            <label for="inputSkills" class="col-sm-3 col-form-label">Upload New Image</label>
+                            <div class="col-sm-9">
                               <input type="file" class="mt-2" id="inputSkills" name="image" onchange="document.getElementById('profile_image').src = window.URL.createObjectURL(this.files[0])">
                             </div>
                           </div>
@@ -98,21 +104,4 @@
 @endsection
 
 @section('script')
-<script>
-    $(function ()
-      {     
-        $("#student_id").hide();
-        $('#type').change(function(){
-          var type = $(this).val();
-          if (type == 'Student') {
-            $("#student_id").show();
-            $("#student_id").attr("required");
-          }else{
-            $("#student_id").hide();
-          }
-        });
-  
-      });
-  </script>
-    
 @endsection

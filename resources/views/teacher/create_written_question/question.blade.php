@@ -1,6 +1,6 @@
 @extends('layouts.admin_master')
 @section('title')
-    Qustion    
+    Create Written Question    
 @endsection
 @section('content')
 <div class="content">
@@ -42,7 +42,7 @@
                         <div class="form-group row">
                           <label class="col-sm-2 col-form-label">Mark</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder=" enter individual mark for every question" name="mark">
+                            <input type="number" class="form-control" placeholder=" enter individual mark for every question" name="mark">
                           </div>
                         </div> 
                         <input type="hidden" name="quiz_id" value="{{$exam->id}}">

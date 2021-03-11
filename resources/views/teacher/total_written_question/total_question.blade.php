@@ -1,4 +1,7 @@
 @extends('layouts.admin_master')
+@section('title')
+    Total Written Question  
+@endsection
 @section('content')
 {{-- Form --}}
  @include('teacher.total_written_question.inc.form') 
@@ -49,7 +52,7 @@
                       <a type="button" class="btn btn-primary btn-sm " href="{{action('Teacher\WrittenController@written_question_edit',['quiz_id' => $item->id,'title' => str_slug($item->course_title)])}}"><i class="fas fa-edit pr-2" ></i>Edit</a>
                     </td>
                     <td>
-                      <a type="button" class="btn btn-primary btn-sm " href="{{action('Teacher\WrittenQuestionView@written_question',['exam_id' => $item->id,'title' => str_slug($item->course_title)])}}"><i class="fas fa-eye pr-2" ></i>View</a>
+                      <a type="button" class="btn btn-primary btn-sm " href="{{action('Teacher\WrittenQuestionView@written_question',['quiz_id' => $item->id,'title' => str_slug($item->course_title)])}}"><i class="fas fa-eye pr-2" ></i>View</a>
                     </td>
                     <td class="text-right">
                         <button type="button" class="btn btn-primary btn-sm ediBtn" data-id="{{$item->id}}" data-title="{{$item->course_title}}" data-ccode="{{$item->course_code}}" data-tcode="{{$item->teacher_code}}" data-noq="{{$item->number_of_question}}" data-marks="{{$item->marks}}" data-time="{{$item->time}}" data-dept="{{$item->department_id}}" data-etype="{{$item->examtype_id}}"><i class="far fa-eye mr-2"></i>View</button>

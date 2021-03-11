@@ -1,6 +1,6 @@
 @extends('layouts.admin_master')
 @section('title')
-    Question ready
+   Written Question ready
 @endsection
 @section('content')
 <div class="content">
@@ -22,8 +22,7 @@
             <!-- /.col -->
             <div class="col-md-8">
                <h3> Your question is ready.</h3>
-               
-               
+               <a href="{{action('Teacher\TotallWrittenController@total_question')}}">Click here to see question</a>
             <div class="col-md-2"></div>
             <!-- /.col -->
           </div>

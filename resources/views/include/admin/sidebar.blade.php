@@ -127,6 +127,14 @@
             </p>
           </a>
         </li>
+        <li class="nav-item has-treeview">
+          <a href="{{action('Admin\QuestionController@question')}}" class="nav-link">
+            <i class="nav-icon fas fa-poll-h"></i>
+            <p>
+              Question
+            </p>
+          </a>
+        </li>
         @endif
 
         <li class="nav-item">

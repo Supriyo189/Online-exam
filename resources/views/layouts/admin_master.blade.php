@@ -31,17 +31,17 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-  <!-- Navbar -->
+  
   <!--header-->
   @include('include.admin.header')
-  <!-- /.navbar -->
+  <!-- header -->
 
   <!-- Main Sidebar Container -->
   <!--Sidebar-->
   @include('include.admin.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="min-height: 1203.6px;">
+  <div class="content-wrapper" style="min-height: 1203.6px; ">
     @yield('content')
   </div>
   <!-- /.content-wrapper -->

@@ -4,7 +4,7 @@ Route::get('error',function(){
     return view('error');
 });
 
-Route::group(['middleware' => 'auth'],function(){
+Route::group(['middleware' => ['auth','verified']],function(){
 
     
     Route::get('dashboard','DashboardController@dashboard');
@@ -41,12 +41,16 @@ Route::group(['middleware' => 'auth'],function(){
              Route::get('admin/exam/question/{unique_id}/{title}','Admin\Exam_Controller@question');
              Route::get('Admin/exam/result/{unique_id}/{title}', 'Admin\Exam_Controller@result');
              /*-----------------Exam-------------------*/
+             /*-----------------------Question----------- */
+             Route::get('admin/question','Admin\QuestionController@question');
+             Route::get('admin/question/question/{unique_id}/{title}','Admin\QuestionController@question_view');
+             /*-----------------------Question----------- */
 
              
     });
 
 
-    Route::group(['middleware' => 'student'],function(){ 
+    Route::group(['middleware' => ['student']],function(){ 
 
         /*----------------Give Exam -----------------*/
         Route::get('student/give_exam','Student\GiveExamController@give_exam')->name('give_exam');
@@ -122,4 +126,5 @@ Route::post('/update_profile','Admin\Manage_profileController@update_profile');
 
 // Route::request('url','action')->name('route');
 
-
+Route::get('change-password', 'ChangePasswordController@index');
+Route::post('change-password', 'ChangePasswordController@store')->name('change.password');

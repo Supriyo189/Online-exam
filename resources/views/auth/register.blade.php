@@ -93,6 +93,11 @@
               <option value="Admin">Admin</option>
             </select>
         </div>
+        @error('accountType')
+                <span class="invalid-feedback" role="alert">
+                     <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         <div class="form-group" id="department">
           <select class="custom-select form-control" required name="department">
             <option value="">Select Department</option>
@@ -103,13 +108,18 @@
           </select>
         </div>
         <div class="input-group mb-3" id="student_id">
-          <input id="std_id" type="text" class="form-control" placeholder="Student id" name="stdID">
+          <input id="std_id" type="number" class="form-control" placeholder="Student id" name="stdID" maxlength="10">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-id-badge"></span>
             </div>
           </div>
         </div>
+        @error('stdID')
+                <span class="invalid-feedback" role="alert">
+                     <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         <div class="row">
           <!-- /.col -->
           <div class="col-4"></div>

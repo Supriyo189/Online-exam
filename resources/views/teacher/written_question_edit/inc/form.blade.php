@@ -20,7 +20,7 @@
                         </div>
                         <div class="form-group row">
                           <div class="col-sm-12">
-                            <input type="text" class="form-control" placeholder="individual mark"  name="marks" required>
+                            <input type="text" class="form-control" placeholder="individual mark"  name="mark" required>
                           </div>
                         </div> 
                        

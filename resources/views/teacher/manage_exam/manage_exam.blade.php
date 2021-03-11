@@ -1,4 +1,7 @@
 @extends('layouts.admin_master')
+@section('title')
+    Manage Exam Info   
+@endsection
 @section('content')
 {{-- Form --}}
  @include('teacher.manage_exam.inc.form') 

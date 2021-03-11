@@ -26,7 +26,7 @@
             <div class="icon">
               <i class="fas fa-users"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            
           </div>
         </div>
         <!-- ./col -->
@@ -91,19 +91,27 @@
             <div class="icon">
               <i class="fas fa-edit"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{action('Admin\Exam_Controller@exam')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-6">
+          <!-- small box -->
+          <div class="small-box" style="background-color: blueviolet">
+            <div class="inner">
+              <h3>{{$question}}</h3>
+
+              <p>Total Questions</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-edit"></i>
+            </div>
+            <a href="{{action('Admin\QuestionController@question')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
       </div>
      </div>
    </section>
-
-    
-        
-    
-    
-    
     <!-- /.row -->
 </div><!-- /.container-fluid -->
 @endsection

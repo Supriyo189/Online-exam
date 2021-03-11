@@ -58,25 +58,3 @@
     <!-- /.row -->
   </div><!-- /.container-fluid -->
 @endsection
-
-@section('script')
-    <script>
-        $(function () {
-            $("#updateForm").hide();
-
-            $(".ediBtn").click(function (e){
-                e.preventDefault();
-
-                $("#addForm").hide();
-                $("#updateForm").show();
-
-                var id = $(this).data('id');
-                var name = $(this).data('name');
-
-                $("#updateForm [name = id]").val(id);
-                $("#updateForm [name = name]").val(name);
-            });
-        
-        });
-    </script>
-@endsection

@@ -22,7 +22,7 @@ class WrittenQuestionView extends Controller
    }
    public function written_question($quiz_id)
    {   
-      $course = Written::where('quiz_id')->value('course_title');
+      $course = Written::find($quiz_id);
       $questions = WrittenQuestion::where('quiz_id',$quiz_id)->get();
       return view('teacher.written_question_view.question',compact('questions','course'));
    }

@@ -42,36 +42,33 @@
                         <div class="form-group row">
                           <label class="col-sm-2 col-form-label">Option 1</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="option 1" name="choice1">
+                            <input type="text" class="form-control" placeholder="option 1" name="choice1" required>
                           </div>
                         </div> 
                         <div class="form-group row">
                           <label class="col-sm-2 col-form-label">Option 2</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="option 2" name="choice2">
+                            <input type="text" class="form-control" placeholder="option 2" name="choice2" required>
                           </div>
-                        </div> 
-                
-                       
-                                
+                        </div>        
                         
                         <div class="form-group row" id="type">
                             <label for="inputSkills" class="col-sm-2 col-form-label">Option 3</label>
                             <div class="col-sm-10">
-                              <input type="text" name="choice3" class="form-control" id="inputSkills" placeholder="option 3" >
+                              <input type="text" name="choice3" class="form-control" id="inputSkills" placeholder="option 3" required>
                             </div>
                         </div>
                     
                         <div class="form-group row" id="student_id">
                             <label for="inputSkills" class="col-sm-2 col-form-label">Option 4</label>
                             <div class="col-sm-10">
-                              <input type="text" name="choice4" class="form-control" id="inputSkills" placeholder="option 4" name="">
+                              <input type="text" name="choice4" class="form-control" id="inputSkills" placeholder="option 4" required>
                             </div>
                         </div>
                         <div class="form-group row" id="student_id">
                             <label for="inputSkills" class="col-sm-2 col-form-label">Currect Answer</label>
                             <div class="col-sm-10">
-                              <input type="text" name="answer" class="form-control" id="inputSkills" placeholder="cortrect answer" name="">
+                              <input type="text" name="answer" class="form-control" id="inputSkills" placeholder="cortrect answer" required>
                             </div>
                         </div>
                           <input type="hidden" name="quiz_id" value="{{$exam->id}}">

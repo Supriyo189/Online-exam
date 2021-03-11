@@ -1,6 +1,6 @@
 @extends('layouts.admin_master')
 @section('title')
-    Exam Info
+   Written Question Info
 @endsection
 @section('content')
 <div class="content">

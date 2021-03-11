@@ -1,6 +1,6 @@
 @extends('layouts.admin_master')
 @section('title')
-    Exam Info   
+    Written Question Edit  
 @endsection
 @section('content')
     
@@ -42,16 +42,10 @@
                                 <div class="col-md-12">
                     
                                         <h3 class="ml-2">{{$i++}}. {{$item->question}}?</h3>
-                                        <div class="col-lg-12">
-                                            <input type="hidden" name="question" value="{{$item->question}}">                                                                                     
-                                            <ol type="i">
-                                                <li><input name="mark" value="{{$item->mark}}" type="hidden"> {{$item->mark}} </li>
-                                                
-                                            </ol>                                        
-                                        </div>
+                                        <p class="pl-3">mark: {{$item->mark}}</p>
                                         <div class="form-group row">
                                             <div class="offset-sm-1 col-sm-10">
-                                              <button type="submit" class="btn btn-success btn-sm ediBtn" data-id="{{$item->id}}" data-question="{{$item->question}}" data-mark="{{$item->mark}}" >Edit</button>
+                                              <button type="button" class="btn btn-success btn-sm ediBtn" data-id="{{$item->id}}" data-question="{{$item->question}}" data-mark="{{$item->mark}}" >Edit</button>
                                             </div>
                                         </div>
                                 </div>
