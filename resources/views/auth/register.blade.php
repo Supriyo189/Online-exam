@@ -31,6 +31,15 @@
   <div class="card">
     <div class="card-body register-card-body">
       <p class="login-box-msg">Register a new membership</p>
+      @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
       <form action="{{ route('register')}}" method="post">
         @csrf
@@ -108,7 +117,7 @@
           </select>
         </div>
         <div class="input-group mb-3" id="student_id">
-          <input id="std_id" type="number" class="form-control" placeholder="Student id" name="stdID" maxlength="10">
+          <input id="std_id" type="number" id="std_id" class="form-control" placeholder="Student id" name="stdID" maxlength="10">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-id-badge"></span>
@@ -150,6 +159,7 @@
 <script src="{{asset('public/admin_asset')}}/dist/js/adminlte.min.js"></script>
 
 <script>
+
   $(function ()
     {     
       $("#student_id").hide();
