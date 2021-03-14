@@ -3,7 +3,19 @@
     Question
 @endsection 
 
-@section('content')  
+@section('content') 
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-1">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">  
+            <div class="text-center">
+            
+            </div>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section> 
 <div class="container-fluid">
     <!-- /.row -->
     <div class="row mt-3">
@@ -20,7 +32,7 @@
                   <th>S/N</th>
                   <th>CourseTitle</th>
                   <th>CourseCode</th>
-                  <th>Teacher</th>
+                  
                   <th>Dept</th>
                   <th class="text-right pl-5px">Action</th>
                 </tr>
@@ -34,7 +46,7 @@
                     <td>{{$i++}}</td>
                     <td>{{$item->course_title}}</td>
                     <td>{{$item->course_code}}</td>
-                    <td>{{$item->user->name}}</td>
+                    {{--<td>{{$item->user->name}}</td>--}}
                     <td>{{$item->department->name}}</td>
                     
                     <td class="text-right">

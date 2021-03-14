@@ -17,8 +17,8 @@ class QuestionController extends Controller
     public function question_view($quiz_id)
     {
         
-        
+        $course = Written::find($quiz_id);
         $question = WrittenQuestion::where('quiz_id',$quiz_id)->get();
-        return view('admin.question.question',compact('question'));
+        return view('admin.question.question',compact('question','course'));
     }
 }

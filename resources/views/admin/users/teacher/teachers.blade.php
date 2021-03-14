@@ -1,6 +1,8 @@
 @extends('layouts.admin_master')
 @section('content')
-    
+@section('title')
+Admin | Teacher list
+@endsection 
 <div class="container-fluid">
   <section class="content-header">
     <div class="container-fluid">

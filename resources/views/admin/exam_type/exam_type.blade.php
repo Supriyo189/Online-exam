@@ -1,6 +1,18 @@
 @extends('layouts.admin_master')
 @section('title','Exam type')
 @section('content')
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-1">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">  
+            <div class="text-center">
+            
+            </div>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
 <div class="container-fluid">
     <!-- /.row -->
     <div class="row mt-3">

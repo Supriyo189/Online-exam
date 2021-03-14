@@ -117,7 +117,8 @@
           </select>
         </div>
         <div class="input-group mb-3" id="student_id">
-          <input id="std_id" type="number" id="std_id" class="form-control" placeholder="Student id" name="stdID" maxlength="10">
+          <input id="std_id" type = "text" class="form-control" placeholder="Student id: 10 numbers" name="stdID" minlength="10" maxlength="10" size="10" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))">
+          
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-id-badge"></span>
@@ -155,7 +156,7 @@
 <script src="{{asset('public/admin_asset')}}/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('public/admin_asset')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
+<!--  App -->
 <script src="{{asset('public/admin_asset')}}/dist/js/adminlte.min.js"></script>
 
 <script>
