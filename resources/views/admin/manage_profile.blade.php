@@ -3,7 +3,7 @@
     {{Auth::user()->name}}
 @endsection
 @section('content')
-<div class="content" style="background-color: aqua;">
+<div class="content" >
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">

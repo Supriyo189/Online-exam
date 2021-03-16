@@ -28,7 +28,7 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed" >
 <div class="wrapper">
 
   
@@ -41,7 +41,7 @@
   @include('include.admin.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="min-height: 1203.6px; ">
+  <div class="content-wrapper" style="min-height: 1203.6px; " >
     @yield('content')
   </div>
   <!-- /.content-wrapper -->

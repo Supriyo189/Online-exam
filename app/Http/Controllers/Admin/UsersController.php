@@ -20,7 +20,7 @@ class UsersController extends Controller
     }
     public function student()
     {
-        $student = User::where('accountType','Student')->get();
+        $student = User::where('accountType','Student')->get();//paginate(1)
         return view('admin.users.student.student',compact('student'));
     }
     

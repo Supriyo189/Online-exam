@@ -19,7 +19,7 @@
               <div class="card">
                 <div class="card-header p-2 ">
                     <i class="fas fa-clipboard ml-3"></i>
-                    <a class="ml-1 " style="font-size: 20px">Update Exam</a>
+                    <a class="ml-1 " style="font-size: 20px">Question Info</a>
                 </div>
                 
                 <!-- /.card-header -->

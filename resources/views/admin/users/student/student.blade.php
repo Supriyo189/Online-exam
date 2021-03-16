@@ -51,8 +51,10 @@
                       
                   @endforeach
                   
-                  
+                 {{--- {{$student->links()}}--}}
               </tbody>
+              
+              
             </table>
           </div>
           <!-- /.card-body -->

@@ -7,7 +7,7 @@
   </div>
 
   <!-- Sidebar -->
-  <div class="sidebar">
+  <div class="sidebar" >
     <!-- Sidebar user panel (optional) -->
     
 

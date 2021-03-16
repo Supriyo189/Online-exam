@@ -22,7 +22,7 @@
                    
                     <div class="col-md-8">
                         <div class="card">
-                            <h1 class="card-header p-2 text-center"><span><b>  Examination on <span class="text-success"></span> </b></span></h1>
+                            <h1 class="card-header p-2 text-center"><span><b>  Question <span class="text-success"></span> </b></span></h1>
                             @php
                                 $i =1;
                             @endphp
@@ -37,13 +37,13 @@
                                         <h3 class="ml-2">{{$i++}}. {{$item->question}}?</h3>
                                         <div class="col-lg-12">
                                             <input type="hidden" name="question" value="{{$item->question}}">
-                                            
-                                            <input type="hidden" name="true_answer" value="{{$item->answer}}">
-                                            <input name="answer" value="{{$item->choice1}}" type="radio"> {{$item->choice1}} <br>
-                                            <input name="answer" value="{{$item->choice2}}" type="radio"> {{$item->choice2}}<br>
-                                            <input name="answer" value="{{$item->choice3}}" type="radio"> {{$item->choice3}}<br>
-                                            <input name="answer" value="{{$item->choice4}}" type="radio"> {{$item->choice4}}<br>
-                                            
+                                            <ol type="i">
+                                                <input type="hidden" name="true_answer" value="{{$item->answer}}">
+                                                <li><input name="answer" value="{{$item->choice1}}" type="hidden"> {{$item->choice1}}</li>
+                                                <li><input name="answer" value="{{$item->choice2}}" type="hidden"> {{$item->choice2}}</li>
+                                                <li><input name="answer" value="{{$item->choice3}}" type="hidden"> {{$item->choice3}}</li>
+                                                <li><input name="answer" value="{{$item->choice4}}" type="hidden"> {{$item->choice4}}</li>
+                                            </ol>
                                         </div>
                                       
                                 </div>

@@ -43,8 +43,9 @@
                                                 <li><input name="answer" value="{{$item->choice1}}" type="hidden"> {{$item->choice1}} </li>
                                                 <li><input name="answer" value="{{$item->choice2}}" type="hidden"> {{$item->choice2}}</li>
                                                 <li><input name="answer" value="{{$item->choice3}}" type="hidden"> {{$item->choice3}}</li>
-                                                 <li><input name="answer" value="{{$item->choice4}}" type="hidden"> {{$item->choice4}}</li>
+                                                 <li><input name="answer" value="{{$item->choice4}}" type="hidden"> {{$item->choice4}}</li>                                                
                                             </ol>
+                                            <p style="padding-left: 18px;">Ans:<input name="answer" value="{{$item->answer}}" type="hidden"> {{$item->answer}}</p>
                                             
                                         </div>
                                       

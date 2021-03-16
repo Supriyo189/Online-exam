@@ -3,15 +3,15 @@
 @section('content')
 
     
-<section class="content-header">
-  <div class="container-fluid">
-      <div class="row mb-2">
-          <div class="col-sm-6">
-              
-          </div>
-      </div>
-  </div><!-- /.container-fluid -->
-</section>
+        <section class="content-header">
+          <div class="container-fluid">
+              <div class="row mb-2">
+                  <div class="col-sm-6">
+                      
+                  </div>
+              </div>
+          </div><!-- /.container-fluid -->
+        </section>
       <div class="container-fluid" >
           <div class="col-md-5"></div>
           <div class="row mb-3">
@@ -40,7 +40,7 @@
             </div>
             <div class="col-md-4">
               <!-- Profile Image -->
-              <div class="card card-primary ">
+              <div class="card ">
                 <div class="card-body box-profile">                 
                   <ul class="list-group list-group-unbordered mb-3">
                     <li class="list-group-item">
